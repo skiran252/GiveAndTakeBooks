@@ -10,23 +10,22 @@
 </head>
 <body>
 
-<form method="post" name="register-form" action="/users/register">
+<form method="post" name="bookadd-form" action="/users/addbook">
   <div class="container">
     {{!-- {{#if(message.length > 0)}}
         <div class="alert alert-danger">{{ message}}</div>
     {{/if}} --}}
-    <label for="firstname"><b>firstname</b></label>
-    <input type="text" placeholder="Enter firstname" name="firstname" required>
-    <label for="lastname"><b>lastname</b></label>
-    <input type="text" placeholder="Enter lastname" name="lastname" required>
+    <label for="bookname"><b>bookname</b></label>
+    <input type="text" placeholder="Enter bookname" name="bookname" required>
+    <label for="lastname"><b>qunatity</b></label>
+    <input type="text" placeholder="Enter quantity" name="quantity" required>
 
-    <label for="email"><b>email</b></label>
-    <input type="email" placeholder="Enter email" name="email" required>
+    <label for="description"><b>description</b></label>
+    <input type="description" placeholder="Enter description" name="description" required>
 
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
-    <label for="address"><b>address</b></label>
-    <input type="text" placeholder="Enter address" name="address" required>
+    <label for="img"><b>upload file/b></label>
+    <input type="file" placeholder="upload file" name="img">
+    
 
     <button type="submit">Register</button>
   </div>

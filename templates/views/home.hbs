@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{{user.firstname }}'s homepage</title>
+        {{>csslinker}}
+    </head>
+    <body>
+		<!-- Top menu -->
+		<nav class="navbar navbar-dark fixed-top navbar-expand-md navbar-no-bg">
+			<div class="container">
+				<a class="navbar-brand" href="/home">Give and Take Books</a>
+			    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			        <span class="navbar-toggler-icon"></span>
+			    </button>
+			    <div class="collapse navbar-collapse" id="navbarNav">
+			        <ul class="navbar-nav ml-auto navbar-menu-items fadeIn animated">
+                        <li class="nav-item">
+			                <a class="nav-link " href="/addbook">Add Book</a>
+			            </li>
+			        </ul>
+			        <form class="form-inline navbar-search-form disabled ml-auto" action="/search" method="post">
+			        	<input type="search" name="search" placeholder="Type and hit enter..." aria-label="Search" class="search form-control">
+			        </form>
+			        <ul class="navbar-nav navbar-search-button">
+			            <li class="nav-item">
+			                <a class="nav-link search-button" href="#"><i class="fas fa-search"></i></a>
+			            </li>
+                        <li class="nav-item">
+			                <a class="nav-link" href="/logout" >Logout</a>
+			            </li>
+			        </ul>
+			    </div>
+		    </div>
+		</nav>
+
+        <!-- Top content -->
+        <div class="top-content">
+        	
+            <div class="inner-bg bg-dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 text">
+                            <h1 class="wow fadeInLeftBig">Give-n-Take Books</h1>
+                            <h1 class="wow fadeInLeftBig">Welcome, {{user.firstname}}  {{user.lastname}}</h1>
+                            <div class="description wow fadeInUp">
+                            	<p>
+	                            	Learn the Art of Giving
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Section 1 -->
+        <div class="section-1-container section-container">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col section-1 section-description wow fadeIn">
+	                    <h2>ABout us</h2>
+	                    <div class="divider-1 wow fadeInUp"><span></span></div>
+	                </div>
+	            </div>
+	            <div class="row">
+                	<div class="col-md-4 section-1-box wow fadeInUp">
+                		<div class="row">
+                			<div class="col-md-4">
+			                	<div class="section-1-box-icon">
+			                		<i class="fas fa-magic"></i>
+			                	</div>
+		                	</div>
+	                		<div class="col-md-8">
+	                    		<h3>Branding</h3>
+	                    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+	                    	</div>
+	                    </div>
+                    </div>
+                    <div class="col-md-4 section-1-box wow fadeInDown">
+	                	<div class="row">
+                			<div class="col-md-4">
+			                	<div class="section-1-box-icon">
+			                		<i class="fas fa-cog"></i>
+			                	</div>
+		                	</div>
+	                		<div class="col-md-8">
+	                    		<h3>Web design</h3>
+	                    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+	                    	</div>
+	                    </div>
+                    </div>
+                    <div class="col-md-4 section-1-box wow fadeInUp">
+	                	<div class="row">
+                			<div class="col-md-4">
+			                	<div class="section-1-box-icon">
+			                		<i class="fab fa-twitter"></i>
+			                	</div>
+		                	</div>
+	                		<div class="col-md-8">
+	                    		<h3>Social media</h3>
+	                    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+	                    	</div>
+	                    </div>
+                    </div>
+	            </div>
+	        </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer-container">
+        
+	        <div class="container">
+	        	<div class="row">
+	        		
+                    <div class="col">
+                    	&copy; Bootstrap 4 Header Template. Download it for free on <a href="https://azmind.com">AZMIND</a>.
+                    </div>
+                    
+                </div>
+	        </div>
+                	
+        </footer>
+        
+        <!-- Javascript -->
+		<script src="./js/jquery-3.3.1.min.js"></script>
+		<script src="./js/jquery-migrate-3.0.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="./js/jquery.backstretch.min.js"></script>
+        <script src="./js/wow.min.js"></script>
+        <script src="./js/retina-1.1.0.min.js"></script>
+        <script src="./js/waypoints.min.js"></script>
+        {{!-- <script>
+            $(document).ready(function(){
+            $("#logout-link").click(function(){
+                
+            });
+            });
+        </script> --}}
+    </body>
+
+</html>

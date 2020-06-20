@@ -4,17 +4,24 @@ const validator = require('validator')
 //const jwt = require('jsonwebtoken')
 
 const bookSchema = new mongoose.Schema({
-    bookname: {
+    bookname: 
+    {
         type: String,
         required: true,
         trim: true
     },
-    qunatity:{
-type:number,
-required: true
+    qunatity:
+    {
+        type:Number,
+        required: true
     },
-
-    
+    photo:{
+        type:Buffer
+    },
+    available:{
+        type:Boolean,
+        default:true
+    },
     description: {
         type: String,
         required: true,

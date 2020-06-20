@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
-//const bcrypt = require('bcryptjs')
-//const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const userSchema = new mongoose.Schema({
     firstname: {
@@ -47,11 +47,12 @@ const userSchema = new mongoose.Schema({
         }
     }]
 })
-
-
-
-
-
+userSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+userSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+};
 
 const User = mongoose.model('User', userSchema)
 

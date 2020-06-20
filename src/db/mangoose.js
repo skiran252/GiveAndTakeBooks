@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://127.0.0.1:27017/give-n-take-books', {
+mongoose.connect('mongodb+srv://saikiran:geetha123@cluster0-dfva2.mongodb.net/give-n-take?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
