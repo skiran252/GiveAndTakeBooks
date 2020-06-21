@@ -3,7 +3,7 @@ require('./db/mangoose.js')
 //creating instance of all npm modules
 const express   = require('express')
 const path      = require('path');
-const hbs       = require('hbs');
+const ejs       = require('ejs');
 const passport  = require('passport');
 const cookieParser = require('cookie-parser')
 var flash       = require('connect-flash');
@@ -12,6 +12,7 @@ const session = require('express-session')
 
 //userrouter
 const userRouter = require('./routers/userroute.js')
+const bookRouter = require('./routers/bookrouter.js')
 
 //setting up port
 const port = process.env.PORT || 3000
@@ -33,6 +34,7 @@ app.use(flash())
 
 //using user router
 app.use(userRouter)
+app.use(bookRouter)
 
 
 
@@ -45,17 +47,9 @@ const viewspath = path.join(__dirname, '../templates/views')
 const partialspath = path.join(__dirname, '../templates/partials')
 
 app.use(express.static(publicDir))
-app.set('view engine','hbs')
+app.set('view engine','ejs')
 app.set('views',viewspath)
-hbs.registerPartials(partialspath)
 
-hbs.registerHelper('greaterThan', function (v1, v2, options) {
-    'use strict';
-       if (v1>v2) {
-         return options.fn(this);
-      }
-      return options.inverse(this);
-    });
 app.get('/',(req,res) =>{
     res.render('login')
 })

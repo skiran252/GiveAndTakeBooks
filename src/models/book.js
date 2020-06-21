@@ -9,7 +9,8 @@ const bookSchema = new mongoose.Schema(
     {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        text:true
     },
     quantity:
     {
@@ -43,6 +44,15 @@ const bookSchema = new mongoose.Schema(
     },{
     timestamps:true
     })
+
+bookSchema.methods.toJSON = function () {
+    const book = this
+    const bookobject = book.toObject()
+    delete bookobject.__v
+    delete bookobject.score
+    return bookobject
+}
+    
 const Book = mongoose.model('Book', bookSchema)
 
 module.exports = Book

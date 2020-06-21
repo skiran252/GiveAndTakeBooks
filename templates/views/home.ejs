@@ -3,41 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{{user.firstname }}'s homepage</title>
-        {{>csslinker}}
+        <title> <%=user.firstname %>'s homepage</title>
+        <%- include ("../../templates/partials/csslinker") %>
     </head>
     <body>
 		<!-- Top menu -->
-		<nav class="navbar navbar-dark fixed-top navbar-expand-md navbar-no-bg">
-			<div class="container">
-				<a class="navbar-brand" href="/home">Give and Take Books</a>
-			    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			        <span class="navbar-toggler-icon"></span>
-			    </button>
-			    <div class="collapse navbar-collapse" id="navbarNav">
-			        <ul class="navbar-nav ml-auto navbar-menu-items fadeIn animated">
-                        <li class="nav-item">
-			                <a class="nav-link " href="/addbook">Add Book</a>
-			            </li>
-			        </ul>
-			        <form class="form-inline navbar-search-form disabled ml-auto" action="/search" method="post">
-			        	<input type="search" name="search" placeholder="Type and hit enter..." aria-label="Search" class="search form-control">
-			        </form>
-			        <ul class="navbar-nav navbar-search-button">
-			            <li class="nav-item">
-			                <a class="nav-link search-button" href="#"><i class="fas fa-search"></i></a>
-			            </li>
-                        <li class="nav-item">
-			                <a class="nav-link" href="/logout" >Logout</a>
-			            </li>
-			        </ul>
-			    </div>
-		    </div>
-		</nav>
-		{{#greaterThan req.booksubmitmessage.length 0}}
-        <div class="alert alert-success">{{ req.booksubmitmessage}}</div>
-    	{{/greaterThan}}
-        <!-- Top content -->
+		<%- include ("../../templates/partials/navbar") %>
         <div class="top-content">
         	
             <div class="inner-bg bg-dark">
@@ -45,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-8 offset-md-2 text">
                             <h1 class="wow fadeInLeftBig">Give-n-Take Books</h1>
-                            <h1 class="wow fadeInLeftBig">Welcome, {{user.firstname}}  {{user.lastname}}</h1>
+                            <h1 class="wow fadeInLeftBig">Welcome, <%=user.firstname %> <%=user.lastname %></h1>
                             <div class="description wow fadeInUp">
                             	<p>
 	                            	Learn the Art of Giving
@@ -136,13 +107,6 @@
         <script src="./js/wow.min.js"></script>
         <script src="./js/retina-1.1.0.min.js"></script>
         <script src="./js/waypoints.min.js"></script>
-        {{!-- <script>
-            $(document).ready(function(){
-            $("#logout-link").click(function(){
-                
-            });
-            });
-        </script> --}}
     </body>
 
 </html>

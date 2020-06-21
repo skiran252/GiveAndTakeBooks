@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
     <link rel="stylesheet" href="/css/style.css">
-    {{!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
 
 <form method="post" name="register-form" action="/users/register">
   <div class="container">
-    {{!-- {{#if(message.length > 0)}}
-        <div class="alert alert-danger">{{ message}}</div>
-    {{/if}} --}}
+    <% if(message.length > 0) {%>
+        <div class="alert alert-danger">{{message}}</div>
+    <%} %>
     <label for="firstname"><b>firstname</b></label>
     <input type="text" placeholder="Enter firstname" name="firstname" required>
     <label for="lastname"><b>lastname</b></label>
