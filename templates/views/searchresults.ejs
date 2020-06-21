@@ -6,24 +6,21 @@
     <title>Search Results</title>
     <%- include ("../../templates/partials/csslinker") %>
 </head>
-<body class="container" bgcolor="black">
+<body class="container -fluid" bgcolor="black">
     <%- include ("../../templates/partials/navbar") %>
-    <div style="width:100vw;height:20vh">
-search results
-    </div>
     <% if(data.length>0) { %>
-    <table  width="100%" cellspacing="10" class="table  table-striped">
+    <table  cellspacing="10" class="table  table-striped" style="margin-top:15vh;">
         <tr>
-            <th>Book cover image</th> <th>name</th><th>Quantity</th><th>Description</th><th>Address</th><th>email</th>
+           <th>name</th><th>Quantity</th><th>Description</th><th>Address</th><th>email</th> <th>Book cover image</th>
         </tr>
         <% for (var i = 0; i < data.length;  i++) { %>
-         <tr> 
-           <td><img src="/books/<%=data[i]._id%>/bookcover"/></td>
+         <tr>
            <td><%= data[i].bookname %></td>
            <td><%= data[i].quantity %></td>
            <td><%= data[i].description %></td>
            <td><%= data[i].address %></td>
            <td><%= data[i].useremail%></td>
+           <td><img src="/books/<%=data[i]._id%>/bookcover"/></td>
          </tr>    
         <% } %>
 
