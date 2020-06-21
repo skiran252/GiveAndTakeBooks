@@ -16,7 +16,7 @@ const bookSchema = new mongoose.Schema(
         type:Number,
         required: true
     },
-    photo:{
+    bookcover:{
         type:Buffer
     },
     available:{
@@ -28,18 +28,13 @@ const bookSchema = new mongoose.Schema(
         required: true,
         trim: true
     },
-    email: {
-        type: String,
-        unique: true,
-        required: true,
-        trim: true,
-        lowercase: true,
-        
-    },
     address: {
         type: String,
         default: 0,
         ref: 'User'
+    },
+    useremail:{
+        type: String
     },
     userid: {
         type: mongoose.Schema.Types.ObjectId,
@@ -47,13 +42,7 @@ const bookSchema = new mongoose.Schema(
     }
     },{
     timestamps:true
-})
-
-
-
-
-
-
+    })
 const Book = mongoose.model('Book', bookSchema)
 
 module.exports = Book

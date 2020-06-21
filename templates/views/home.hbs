@@ -34,7 +34,9 @@
 			    </div>
 		    </div>
 		</nav>
-
+		{{#greaterThan req.booksubmitmessage.length 0}}
+        <div class="alert alert-success">{{ req.booksubmitmessage}}</div>
+    	{{/greaterThan}}
         <!-- Top content -->
         <div class="top-content">
         	

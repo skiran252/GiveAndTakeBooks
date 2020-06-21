@@ -14,14 +14,13 @@ router.post('/users/addbook',isLoggedIn,(req,res)=>{
     const book = new Book(req.body)
     book.userid = req.user.id
     book.address=req.user.address
-    book.email=req.user.email
-    console.log(book)
+    book.useremail=req.user.email
     book.save().then((data)=>{
-        console.log(data)
+        req.booksubmitmessage="Book Added successfully"
         res.redirect('/home') 
     }).catch((err)=>{
-        console.log(err)
-        res.status(500).send()
+        req.booksubmitmessage="Book Title already exists"
+        res.render('addbook')
     })
     
 })

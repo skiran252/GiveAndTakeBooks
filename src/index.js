@@ -49,7 +49,13 @@ app.set('view engine','hbs')
 app.set('views',viewspath)
 hbs.registerPartials(partialspath)
 
-
+hbs.registerHelper('greaterThan', function (v1, v2, options) {
+    'use strict';
+       if (v1>v2) {
+         return options.fn(this);
+      }
+      return options.inverse(this);
+    });
 app.get('/',(req,res) =>{
     res.render('login')
 })
