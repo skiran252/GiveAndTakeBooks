@@ -2,7 +2,7 @@ var express = require('express')
 const router = new express.Router();
 require('../middleware/passport')
 const passport = require('passport')
-
+const Book = require('../models/book')
 router.get('/login',(req,res)=>{
     res.render('login')
 })
@@ -10,7 +10,21 @@ router.get('/login',(req,res)=>{
 router.get('/home',isLoggedIn,(req,res)=>{
     res.render('home',{user:req.user})
 })
-
+router.post('/users/addbook',isLoggedIn,(req,res)=>{
+    const book = new Book(req.body)
+    book.userid = req.user.id
+    book.address=req.user.address
+    book.email=req.user.email
+    console.log(book)
+    book.save().then((data)=>{
+        console.log(data)
+        res.redirect('/home') 
+    }).catch((err)=>{
+        console.log(err)
+        res.status(500).send()
+    })
+    
+})
 router.post('/users/login', passport.authenticate('local-login', {
     successRedirect : '/home', // redirect to the secure profile section
     failureRedirect : '/abcd', // redirect back to the signup page if there is an error

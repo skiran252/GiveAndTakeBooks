@@ -3,14 +3,15 @@ const validator = require('validator')
 //const bcrypt = require('bcryptjs')
 //const jwt = require('jsonwebtoken')
 
-const bookSchema = new mongoose.Schema({
+const bookSchema = new mongoose.Schema(
+    {
     bookname: 
     {
         type: String,
         required: true,
         trim: true
     },
-    qunatity:
+    quantity:
     {
         type:Number,
         required: true
@@ -34,13 +35,18 @@ const bookSchema = new mongoose.Schema({
         trim: true,
         lowercase: true,
         
-    }
-    ,
+    },
     address: {
         type: String,
         default: 0,
-       
+        ref: 'User'
+    },
+    userid: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
     }
+    },{
+    timestamps:true
 })
 
 

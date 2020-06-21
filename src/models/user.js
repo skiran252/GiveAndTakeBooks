@@ -47,6 +47,13 @@ const userSchema = new mongoose.Schema({
         }
     }]
 })
+
+
+userSchema.virtual('book', {
+    ref: 'Book',
+    localField: '_id',
+    foreignField: 'userid'
+})
 userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
