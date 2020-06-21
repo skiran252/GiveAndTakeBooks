@@ -75,7 +75,8 @@ img { max-width: 100%; }
 .navbar-expand-md .navbar-nav .nav-link { padding: 1rem; }
 
 .navbar-brand {
-	width: 220px;
+	width: 30vw;
+	height:auto;
 	background: url(../img/logo.png) left center no-repeat;
 	border: 0;
 	text-indent: -99999px;
@@ -85,7 +86,7 @@ img { max-width: 100%; }
 .navbar-menu-items.disabled { display: none; }
 
 .navbar-search-form input[type="search"] {
-	width: 400px;
+	width: 300px;
     margin: 0;
     background: none;
     border: 0;

@@ -23,7 +23,7 @@ const upload = multer({
 
 router.post('/users/addbook',upload.single('bookcover'),isLoggedIn, async (req,res)=>{
     console.log(req.file)
-    const buffer = await sharp(req.file.buffer).resize({ width: null, height: 300 }).png().toBuffer()
+    const buffer = await sharp(req.file.buffer).resize({ width: null, height:150}).png().toBuffer()
     const book = new Book(req.body)
     book.bookcover= buffer
     book.userid = req.user.id

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
     <%- include ("../../templates/partials/csslinker") %>
 </head>
 <body class="container -fluid" bgcolor="black">
     <%- include ("../../templates/partials/navbar") %>
+
+
     <% if(data.length>0) { %>
     <table  cellspacing="10" class="table  table-striped" style="margin-top:15vh;">
         <tr>
@@ -31,18 +33,6 @@
         </div>
     <% } %>
     </div>
-        <script>
-
-            document.onload = function(){
-
-                var imgs = document.querySelectorAll('.imagetorender')
-                imgs.forEach((img)=>{
-                    console.log(img.data)
-                    img.src = '/books/<%=data._id%>/bookcover' + btoa(img.data);s
-                })
-                
-            };
-        </script>
         <script src="./js/jquery-3.3.1.min.js"></script>
 		<script src="./js/jquery-migrate-3.0.0.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
