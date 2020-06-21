@@ -14,17 +14,16 @@ search results
     <% if(data.length>0) { %>
     <table  width="100%" cellspacing="10" class="table  table-striped">
         <tr>
-           <th>name</th><th>Quantity</th><th>Description</th><th>Address</th><th>email</th> <th>Book cover image</th>
+            <th>Book cover image</th> <th>name</th><th>Quantity</th><th>Description</th><th>Address</th><th>email</th>
         </tr>
-     
         <% for (var i = 0; i < data.length;  i++) { %>
-         <tr>
+         <tr> 
+           <td><img src="/books/<%=data[i]._id%>/bookcover"/></td>
            <td><%= data[i].bookname %></td>
            <td><%= data[i].quantity %></td>
            <td><%= data[i].description %></td>
            <td><%= data[i].address %></td>
            <td><%= data[i].useremail%></td>
-           <td><img src="<%data:image/jpeg;base64,data[i].bookcover%>" class="imagetorender" /></td>
          </tr>    
         <% } %>
 
@@ -42,7 +41,7 @@ search results
                 var imgs = document.querySelectorAll('.imagetorender')
                 imgs.forEach((img)=>{
                     console.log(img.data)
-                    img.src = 'data:image/jpeg;base64,' + btoa(img.data);s
+                    img.src = '/books/<%=data._id%>/bookcover' + btoa(img.data);s
                 })
                 
             };

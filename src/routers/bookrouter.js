@@ -23,10 +23,9 @@ const upload = multer({
 
 router.post('/users/addbook',upload.single('bookcover'),isLoggedIn, async (req,res)=>{
     console.log(req.file)
-    const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
-    const encoded=buffer.toString('base64')
+    const buffer = await sharp(req.file.buffer).resize({ width: null, height: 300 }).png().toBuffer()
     const book = new Book(req.body)
-    book.bookcover=new Buffer(encoded,'base64')
+    book.bookcover= buffer
     book.userid = req.user.id
     book.address=req.user.address
     book.useremail=req.user.email
@@ -39,6 +38,20 @@ router.post('/users/addbook',upload.single('bookcover'),isLoggedIn, async (req,r
     })
 })
 
+router.get('/books/:id/bookcover', async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id)
+
+        if (!book || !book.bookcover) {
+            throw new Error()
+        }
+
+        res.set('Content-Type', 'image/png')
+        res.send(book.bookcover)
+    } catch (e) {
+        res.status(404).send()
+    }
+})
 // router.get("/books/search",(req,res)=>{
 //     res.render('searchresults')
 // })
@@ -52,7 +65,6 @@ router.post("/books/search",(req,res)=> {
             score : { $meta: "textScore" } 
         }).sort( { score: { $meta: "textScore" } } ).then((result)=>
         {
-            console.log()
             res.render('searchresults',{data:result})
         })
 })
