@@ -4,6 +4,7 @@ require('../middleware/passport')
 const passport = require('passport')
 
 
+
 router.get('/login',(req,res)=>{
     res.render('login',{ message: req.flash('loginMessage') })
 })
