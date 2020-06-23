@@ -50,11 +50,6 @@ app.use(express.static(publicDir))
 app.set('view engine','ejs')
 app.set('views',viewspath)
 
-app.get('/',(req,res) =>{
-    res.render('index')
-})
-
-
 
 
 

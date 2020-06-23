@@ -90,7 +90,7 @@ router.get('/mybooks',isLoggedIn,(req,res)=>{
 //     }
 // })
 router.get('/addbook',isLoggedIn,(req,res)=>{
-    res.render('addbook')
+    res.render('addbook',{user:req.user})
 })
 
 router.get('/delete/:id',isLoggedIn,(req,res)=>{

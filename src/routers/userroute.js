@@ -4,6 +4,10 @@ require('../middleware/passport')
 const passport = require('passport')
 const User = require('../models/user')
 
+router.get('/',(req,res) =>{
+    res.render('index',{user:req.user})
+})
+
 
 router.get('/login',(req,res)=>{
     res.render('login',{ message: req.flash('loginMessage') })
