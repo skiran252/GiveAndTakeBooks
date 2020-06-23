@@ -14,9 +14,7 @@
             <li class="active"><a href="/home">DASHBOARD</a></li>
             <li><a href="/addbook">ADD BOOK</a></li>
           <%}%>
-          <% if(typeof user == 'undefined') { %>
           <li><a href="#contact">Contact</a></li>
-          <%}%>
 		  <li class="drop-down"><a href="<%if(typeof user == 'undefined'){%>/login<%}%>">
         <% if(typeof user !== 'undefined') { %>
           HI,<%= user.firstname %>
@@ -28,7 +26,7 @@
             <ul>
               <% if(typeof user !== 'undefined') { %>
                 <li><a href="/updatebio">UPDATE BIO</a></li>
-                <li><a href="/logout">LOG OUT</a></li>
+                <li><span class="fa fa-sign-out"></span><a href="/logout">LOG OUT</a></li>
                 <li><a href="/mybooks">MY BOOKS</a></li>
               <%}%>
         </ul>

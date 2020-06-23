@@ -6,7 +6,7 @@ const User = require('../models/user')
 
 
 router.get('/',(req,res) =>{
-    res.render('index',{user:req.user})
+    res.render('index',{user:req.user,active:req.active})
 })
 
 
