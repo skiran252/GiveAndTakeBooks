@@ -73,22 +73,22 @@ router.get('/mybooks',isLoggedIn,(req,res)=>{
     try{
     Book.find({userid:req.user.id}).sort({'createdAt':-1}).then((result)=>{
         console.log(result)
-        res.render('mybooks',{data:result})
+        res.render('mybooks',{data:result,user:req.user})
     })}
     catch(err){
         console.log(err)
     }
 })
 
-router.get('/me/books',isLoggedIn,(req,res)=>{
-    try{
-    Book.find({userid:req.user.id}).sort({'createdAt':-1}).then((result)=>{
-        res.send(result)
-    })}
-    catch(err){
-        console.log(err.message)
-    }
-})
+// router.get('/me/books',isLoggedIn,(req,res)=>{
+//     try{
+//     Book.find({userid:req.user.id}).sort({'createdAt':-1}).then((result)=>{
+//         res.send(result)
+//     })}
+//     catch(err){
+//         console.log(err.message)
+//     }
+// })
 router.get('/addbook',isLoggedIn,(req,res)=>{
     res.render('addbook')
 })
