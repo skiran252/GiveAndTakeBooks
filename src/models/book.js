@@ -55,9 +55,6 @@ bookSchema.methods.toJSON = function () {
     delete bookobject.score
     return bookobject
 }
-bookSchema.methods.SendBookRequest = (user) =>{
-    
-}
 const Book = mongoose.model('Book', bookSchema)
 
 module.exports = Book

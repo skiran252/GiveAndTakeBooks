@@ -4,6 +4,7 @@ require('../middleware/passport')
 const passport = require('passport')
 const User = require('../models/user')
 
+
 router.get('/',(req,res) =>{
     res.render('index',{user:req.user})
 })
@@ -15,6 +16,19 @@ router.get('/login',(req,res)=>{
 
 router.get('/home',isLoggedIn,(req,res)=>{
     res.render('home',{user:req.user})
+})
+const Contact =require('../models/contact')
+router.post('/contact',(req,res)=>{
+    const contact = new Contact(req.body)
+    try{
+    contact.save().then((result)=>{
+            console.log(result)
+            res.render('index')
+        })}
+        catch(err){
+            console.log(err)
+        }
+   
 })
 
 router.post('/users/login', passport.authenticate('local-login', {

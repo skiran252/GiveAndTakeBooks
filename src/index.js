@@ -51,7 +51,10 @@ app.set('view engine','ejs')
 app.set('views',viewspath)
 
 
-
+app.use(function(req, res, next){
+    req.active = req.path.split('/')[1] // [0] will be empty since routes start with '/'
+    next();
+});
 
 app.get('*',(req,res)=>{
     res.status(404).send("Page not found")
