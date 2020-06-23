@@ -9,26 +9,22 @@
     <body>
 		<!-- Top menu -->
 		<%- include ("../../templates/partials/navbar") %>
-        <div class="top-content">
-        	
-            <div class="inner-bg bg-dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 offset-md-2 text">
-                            <h1 class="wow fadeInLeftBig">Wish Books !! Santas are here</h1>
-                            <h1 class="wow fadeInLeftBig">Welcome, <%=user.firstname %> <%=user.lastname %></h1>
-                            <div class="description wow fadeInUp">
-                            	<p>
-	                            	Manava Seve Madhava Seva
-                            	</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
+		<section id="hero" class="d-flex align-items-center">
+
+			<div class="container">
+			  <div class="row">
+				<div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+				  <h1>HI! <%=user.firstname %> <%=user.lastname %></h1>
+				  <h2>Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam, risus at semper. Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum.</h2>
+				  <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div>
+				</div>
+				<div class="col-lg-6 order-1 order-lg-2 hero-img">
+				  <img src="./img/hero-img.png" class="img-fluid" alt="">
+				</div>
+			  </div>
+			</div>
+		
+		  </section><!-- End Hero -->
         
         <!-- Section 1 -->
         <div class="section-1-container section-container">
@@ -99,14 +95,7 @@
         </footer>
         
         <!-- Javascript -->
-		<script src="./js/jquery-3.3.1.min.js"></script>
-		<script src="./js/jquery-migrate-3.0.0.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <script src="./js/jquery.backstretch.min.js"></script>
-        <script src="./js/wow.min.js"></script>
-        <script src="./js/retina-1.1.0.min.js"></script>
-        <script src="./js/waypoints.min.js"></script>
+		
     </body>
 
 </html>

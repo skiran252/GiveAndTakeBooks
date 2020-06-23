@@ -1,0 +1,45 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Welcome to Give-n-take</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body
+        { 
+          padding-top:80px; 
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+   
+    <form action="/savechanges" method="post">
+        <div class="form-group">
+            <label>firstname</label>
+            <input type="text" class="form-control" name="firstname" value=<%=user.firstname%>>
+        </div>
+        <div class="form-group">
+            <label>lastname</label>
+            <input type="text" class="form-control" name="lastname" value=<%=user.lastname%>>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" name="email" value=<%=user.email%>>
+        </div>
+        <div class="form-group">
+            <label>address</label>
+            <input type="text" class="form-control" name="address" value=<%=user.address%>>
+        </div>
+        
+        <button type="submit" class="btn btn-warning btn-lg">update</button>
+    </form>
+    <hr>
+    
+</div>
+</div>
+</body>
+</html>

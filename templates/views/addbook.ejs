@@ -1,36 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>add book Page</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Welcome to Give-n-take</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body
+        { 
+          padding-top:80px; 
+        }
+    </style>
 </head>
 <body>
+<div class="container">
 
-<form method="post" name="bookadd-form" action="/users/addbook" enctype="multipart/form-data">
-  <div class="container">    
-    <label for="bookname"><b>bookname</b></label>
-    <input type="text" placeholder="Enter bookname" name="bookname" required>
-    <br>
-    <label for="lastname"><b>qunatity</b></label>
-    <input type="text" placeholder="Enter quantity" name="quantity" required>
-<br>
-    <label for="description"><b>description</b></label>
-    <input type="description" placeholder="Enter description" name="description" required>
-<br>
-    <label for="bookcover"><b>upload file</b></label>
-    <input type="file" placeholder="upload book pic" name="bookcover">
+<div class="col-sm-6 col-sm-offset-3">
+   
+    <form action="/users/addbook" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="bookname"><b>bookname</b></label>
+          <input type="text" placeholder="Enter bookname" name="bookname" required>
+        </div>
+        <div class="form-group">
+          <label for="lastname"><b>qunatity</b></label>
+          <input type="text" placeholder="Enter quantity" name="quantity" required>
+        </div>
+        <div class="form-group">
+          <label for="description"><b>description</b></label>
+          <input type="description" placeholder="Enter description" name="description" required>
+        </div>
+        <div class="form-group">
+          <label for="bookcover"><b>upload file</b></label>
+          <input type="file" placeholder="upload book pic" name="bookcover">
+          
+        </div>
+        
+        <button type="submit" class="btn btn-warning btn-lg">Add BOOK</button>
+    </form>
+    <hr>
     
-<br>
-    <button type="submit">Add BOOK</button>
-  </div>
-
- 
-</form>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</div>
+</div>
 </body>
 </html>

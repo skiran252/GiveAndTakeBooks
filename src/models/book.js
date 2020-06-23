@@ -5,8 +5,16 @@ const validator = require('validator')
 
 const bookSchema = new mongoose.Schema(
     {
+    
+        
     bookname: 
     {
+        type: String,
+        required: true,
+        trim: true,
+        text:true
+    },
+    description: {
         type: String,
         required: true,
         trim: true,
@@ -23,11 +31,6 @@ const bookSchema = new mongoose.Schema(
     available:{
         type:Boolean,
         default:true
-    },
-    description: {
-        type: String,
-        required: true,
-        trim: true
     },
     address: {
         type: String,
@@ -52,7 +55,9 @@ bookSchema.methods.toJSON = function () {
     delete bookobject.score
     return bookobject
 }
+bookSchema.methods.SendBookRequest = (user) =>{
     
+}
 const Book = mongoose.model('Book', bookSchema)
 
 module.exports = Book

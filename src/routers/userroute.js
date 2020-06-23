@@ -2,7 +2,7 @@ var express = require('express')
 const router = new express.Router();
 require('../middleware/passport')
 const passport = require('passport')
-
+const User = require('../models/user')
 
 
 router.get('/login',(req,res)=>{
@@ -21,9 +21,6 @@ router.post('/users/login', passport.authenticate('local-login', {
 router.get('/register',(req,res)=>{
     res.render('register',{ message: req.flash('signupMessage') })
 })
-router.get('/addbook',(req,res)=>{
-    res.render('addbook')
-})
 
 
 router.post('/users/register', passport.authenticate('local-signup', {
@@ -31,18 +28,25 @@ router.post('/users/register', passport.authenticate('local-signup', {
     failureRedirect : '/register', 
     failureFlash : true
 }));
-router.get('/me/books',isLoggedIn,(req,res)=>{
+
+
+router.get('/updatebio',isLoggedIn,(req,res)=>{
+    res.render('updatebio',{user:req.user})
+})
+router.post('/savechanges',isLoggedIn,(req,res)=>{
+    
+    console.log(req.body)
+    console.log('hello2')
     try{
-    Book.find({userid:req.user.id}).sort({'createdAt':-1}).then((result)=>{
-        res.send(result)
+    User.findByIdAndUpdate(req.user.id,req.body).then((result)=>{
+        res.redirect('/home')
     })}
     catch(err){
         console.log(err.message)
     }
 })
 
-
-router.get('/logout', function(req, res) {
+router.get('/logout', isLoggedIn,function(req, res) {
     req.logout();
     res.redirect('/') 
 });
@@ -50,6 +54,6 @@ router.get('/logout', function(req, res) {
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
-    res.redirect('/');
+    res.send("<h1> Please Authenticate </h1> <button href='/login'>LOGIN</button");
 }
 module.exports = router

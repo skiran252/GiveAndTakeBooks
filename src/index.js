@@ -51,7 +51,7 @@ app.set('view engine','ejs')
 app.set('views',viewspath)
 
 app.get('/',(req,res) =>{
-    res.render('login',{ message: req.flash('loginMessage') })
+    res.render('index')
 })
 
 

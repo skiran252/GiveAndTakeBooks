@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <%- include ("../partials/csslinker")%>
+</head>
+<body>
+    <%- include ("../partials/navbar")%>
+    <div class="container" height="100%" style="margin-top:15vh">
+        <% if(data.length>0) { %>
+            <% for (var i = 0; i < data.length;  i++) { %>
+                <div class="row ml-auto mr-auto" style="height:25vh;width:100%;margin: 20px; color: black;">
+                    <div class="col-md-3 col-xs-3 col-sm-3">
+                        <img src="/books/<%=data[i]._id%>/bookcover" height="70%" width="70%">
+                    </div>
+                    <div class="col-md-9 col-xs-9 col-sm-9" style="height:100%;">
+                        
+                        <table style="text-align: left;">
+                            <tr>
+                                <td><strong>Book Name:</strong> </td>
+                                <td><%= data[i].bookname %></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quantity:</strong></td>
+                                <td><%= data[i].quantity %></td>
+                            </tr>
+                            <tr>
+                                <td><strong>description:</strong></td>
+                                <td><%= data[i].description %></td>
+                            </tr>
+
+                            <tr>
+                                <td><a class="btn btn-danger btn-xs" href="/delete/<%=data[i]._id %>"><i class="fa fa-trash"></i></a></td>
+                                <td><a class="btn btn-primary btn-xs" href="/bookedit/<%=data[i]._id %>"><i class="fa fa-edit"></i></a></td>
+                            </tr>
+                           
+                        </table>
+                    </div>
+                    
+                </div>
+
+
+            <% } %> 
+             <% } else {%>
+                <div style="width:100vw;height:20vh;text-align: center;">
+                    <h3>YOU DID'NT POSTED ANY BOOKS YET?</h3>
+                </div>
+            <% } %>
+            </div>
+
+    </div>
+
+    
+        <script src="/js/jquery-3.3.1.min.js"></script>
+		<script src="/js/jquery-migrate-3.0.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="/js/jquery.backstretch.min.js"></script>
+        <script src="/js/wow.min.js"></script>
+        <script src="/js/retina-1.1.0.min.js"></script>
+</body>
+</html>

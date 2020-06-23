@@ -1,34 +1,42 @@
-<nav class="navbar navbar-dark fixed-top navbar-expand-md bg-dark">
-			<div class="container" height="auto">
-                <a class="navbar-brand" href="/home">
-                <img src="./img/logo.png" alt="">
-                </a>
-			    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			        <span class="navbar-toggler-icon"></span>
-			    </button>
-			    <div class="collapse navbar-collapse" id="navbarNav">
-			        <ul class="navbar-nav ml-auto navbar-menu-items fadeIn animated">
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
 
-                        <li class="nav-item">
-                            <a class="nav-link " href="/home">HOME</a>
+      <a href="/" class="logo "><img src="./img/logo.png" alt="" class="img-fluid"></a>
+      <!-- Uncomment below if you prefer to use text as a logo -->
+      <!-- <h1 class="logo mr-auto"><a href="index.html">Butterfly</a></h1> -->
+	<form class="form-inline navbar-search-form " style="margin-left:20px;width:60%" action="/books/search" method="post">
+		<input style="color: black;border: 1px solid black;border-radius:50%;width:100%;text-align: center;" type="search" name="search" placeholder="Search for books by name" aria-label="Search" class="search form-control">
+	</form>
+      <nav class="nav-menu d-none d-lg-block ml-auto">
+        <ul>
+		  <li class="active"><a href="/home">Home</a></li>
+		  
+		  
+          <li><a href="/addbook">ADD BOOK</a></li>
+          <li><a href="/mybooks">MY BOOKS</a></li>
+          <li><a href="/updatebio">UPDATE BIO</a></li>
+          <li><a href="/logout">LOG OUT</a></li>
+          <li><a href="#contact">Contact</a></li>
+		  <li class="drop-down"><a href="">Drop Down</a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="drop-down"><a href="#">Deep Drop Down</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav><!-- .nav-menu -->
 
-			            </li>
-                        <li class="nav-item">
-			                <a class="nav-link " href="/addbook">Add Book</a>
-			            </li>
-						
-                        <li class="nav-item">
-			                <a class="nav-link" href="/logout" >Logout</a>
-			            </li>
-			        </ul>
-			        <form class="form-inline navbar-search-form  ml-auto" action="/books/search" method="post">
-			        	<input style="background:gray;color: white;" type="search" name="search" placeholder="Search for books by name" aria-label="Search" class="search form-control">
-			        </form>
-			       <!-- <ul class="navbar-nav navbar-search-button">
-			            <li class="nav-item">
-			                <a class="nav-link search-button" href="#"><i class="fas fa-search"></i></a>
-			            </li>
-			        </ul> -->
-			    </div>
-		    </div>
-		</nav>
+    </div>
+  </header><!-- End Header -->
