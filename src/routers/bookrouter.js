@@ -60,12 +60,12 @@ router.post("/books/search",(req,res)=> {
     Book.find( 
         { 
             $text : {$search : req.body.search} 
-        } , 
+        }, 
         {
             score : { $meta: "textScore" } 
         }).sort( { score: { $meta: "textScore" } } ).then((result)=>
         {
-            res.render('searchresults',{data:result})
+            res.render('searchresults',{data:result,user:req.user})
         })
 })
 
