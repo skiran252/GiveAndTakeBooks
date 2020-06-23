@@ -15,11 +15,11 @@
             <li><a href="/addbook">ADD BOOK</a></li>
           <%}%>
           <li><a href="#contact">Contact</a></li>
-		  <li class="drop-down"><a href="">
+		  <li class="drop-down"><a href="<%if(typeof user == 'undefined'){%>/login<%}%>">
         <% if(typeof user !== 'undefined') { %>
           HI,<%= user.firstname %>
         <%} else { %>
-          PLEASE Login
+          PLEASE LOGIN
         <%}%>
         
       </a>
