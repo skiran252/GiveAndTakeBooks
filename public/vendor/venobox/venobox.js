@@ -790,11 +790,8 @@
                     var sonH = content.outerHeight();
                     var finH = $(window).height();
 
-                    if (sonH + 60 < finH) {
-                        margine = (finH - sonH)/2;
-                    } else {
-                        margine = '30px';
-                    }
+                    margine = sonH + 60 < finH ? margine = (finH - sonH)/2 : margine = '30px';
+
                     content.css('margin-top', margine);
                     content.css('margin-bottom', margine);
                     option.cb_post_resize();
